@@ -1,0 +1,39 @@
+{
+  "name": "@alkid/alkid-js",
+  "version": "0.1.0",
+  "description": "AlkID JS SDK",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc -p tsconfig.build.json",
+    "build:clean": "rm -rf dist && npm run build",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "alkid",
+    "sdk",
+    "typescript"
+  ],
+  "author": "Jonathan P. Navarrete",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.1",
+    "@types/node": "^24",
+    "tsx": "^4.20",
+    "typescript": "^5.9"
+  },
+  "dependencies": {
+    "@noble/secp256k1": "^3.0.0"
+  }
+}
