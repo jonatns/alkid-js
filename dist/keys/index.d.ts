@@ -1,7 +1,2 @@
-export declare function generateKeys(): Promise<{
-    controllerPriv: string;
-    controllerPub: string;
-    recoveryPriv: string;
-    recoveryPub: string;
-}>;
+export * from "./generate";
 //# sourceMappingURL=index.d.ts.map

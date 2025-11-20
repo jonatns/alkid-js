@@ -14,7 +14,7 @@ function pubkeyToU128Hex(pubHex: string): string {
   return secp.etc.bytesToHex(first16);
 }
 
-export async function generate() {
+export async function generateKeys() {
   const priv1 = secp.utils.randomSecretKey();
   const priv2 = secp.utils.randomSecretKey();
 
