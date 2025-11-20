@@ -1,4 +1,4 @@
-import { validateDid } from "../utils";
+import { validateDid } from "../utils/did";
 import { generate as generateKeys } from "../keys";
 import * as storage from "../storage";
 import { ALKID_BASE_URL, ALKID_NAMESPACE } from "../constants";

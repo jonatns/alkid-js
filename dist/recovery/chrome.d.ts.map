@@ -1,0 +1,1 @@
+{"version":3,"file":"chrome.d.ts","sourceRoot":"","sources":["../../src/recovery/chrome.ts"],"names":[],"mappings":"AAKA,MAAM,WAAW,kBAAkB;IACjC,OAAO,CAAC,EAAE,MAAM,CAAC;IACjB,OAAO,CAAC,EAAE,SAAS,GAAG,SAAS,CAAC;CACjC;AAED,wBAAsB,KAAK,CAAC,OAAO,CAAC,EAAE,kBAAkB,GAAG,OAAO,CAAC,MAAM,CAAC,CA6CzE"}
