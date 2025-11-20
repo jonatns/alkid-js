@@ -1,0 +1,1 @@
+{"version":3,"file":"rpc.d.ts","sourceRoot":"","sources":["../../src/transport/rpc.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,SAAS,CAAC;AAIzC,wBAAgB,GAAG,CACjB,GAAG,EAAE,MAAM,EACX,IAAI,CAAC,EAAE;IAAE,OAAO,CAAC,EAAE,MAAM,CAAC,MAAM,EAAE,MAAM,CAAC,CAAA;CAAE,GAC1C,SAAS,CAkCX"}

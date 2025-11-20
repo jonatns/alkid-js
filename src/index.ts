@@ -12,5 +12,13 @@ export const alkid = {
 };
 
 export * from "./utils/did";
+export * from "./transport";
+export * from "./client";
+export * from "./recovery";
+export * from "./storage";
+export * from "./constants";
+export * from "./keys";
+export * from "./did";
+export * from "./env";
 
 export default alkid;

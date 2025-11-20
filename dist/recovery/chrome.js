@@ -1,36 +1,24 @@
-import { validateDid } from "../utils/did";
-import { generate as generateKeys } from "../keys";
-import * as storage from "../storage";
-import { ALKID_BASE_URL, ALKID_NAMESPACE } from "../constants";
+import { DEFAULT_BASE_URL, ALKID_NAMESPACE } from "../constants";
 export async function start(options) {
-    if (typeof chrome === "undefined" ||
-        !chrome.identity ||
-        typeof chrome.identity.launchWebAuthFlow !== "function") {
-        throw new Error("AlkID recovery requires chrome.identity.launchWebAuthFlow. " +
-            "This method can only be used inside a Chrome extension.");
+    if (!chrome?.identity?.launchWebAuthFlow) {
+        throw new Error("AlkID recovery requires chrome.identity.launchWebAuthFlow.");
     }
-    const { controllerPub, controllerPriv, recoveryPub, recoveryPriv } = await generateKeys();
-    await storage.setControllerKey(controllerPriv);
-    await storage.setRecoveryKey(recoveryPriv);
-    const redirectUri = chrome.identity.getRedirectURL(ALKID_NAMESPACE);
-    const authUrl = new URL(options?.baseUrl ?? ALKID_BASE_URL);
+    const redirectUri = options.redirectUri ?? chrome.identity.getRedirectURL(ALKID_NAMESPACE);
+    const authUrl = new URL(options.baseUrl ?? DEFAULT_BASE_URL);
     authUrl.searchParams.set("redirect_uri", encodeURIComponent(redirectUri));
-    authUrl.searchParams.set("controller", controllerPub);
-    authUrl.searchParams.set("recovery", recoveryPub);
-    authUrl.searchParams.set("network", options?.network ?? "mainnet");
+    authUrl.searchParams.set("controller", options.controller);
+    authUrl.searchParams.set("recovery", options.recovery);
+    authUrl.searchParams.set("network", options.network ?? "mainnet");
     const responseUrl = await chrome.identity.launchWebAuthFlow({
         url: authUrl.href,
         interactive: true,
     });
-    if (!responseUrl) {
-        throw new Error("AlkID did not return a redirect URL.");
-    }
+    if (!responseUrl)
+        throw new Error("No redirect URL returned from AlkID.");
     const url = new URL(responseUrl);
-    const did = url.searchParams.get("did");
-    if (!did || !validateDid(did)) {
-        throw new Error("Invalid DID returned from AlkID.");
-    }
-    await storage.setDid(did);
-    return did;
+    const txid = url.searchParams.get("tx");
+    if (!txid)
+        throw new Error("Missing tx from AlkID redirect.");
+    return txid;
 }
 //# sourceMappingURL=chrome.js.map

@@ -1,3 +1,3 @@
-import * as chromeImpl from "./chrome";
-export declare function start(options?: chromeImpl.ChromeStartOptions): Promise<string>;
+export * from "./start";
+export * from "./enable";
 //# sourceMappingURL=index.d.ts.map

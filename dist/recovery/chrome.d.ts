@@ -1,6 +1,3 @@
-export interface ChromeStartOptions {
-    baseUrl?: string;
-    network?: "mainnet" | "regtest";
-}
-export declare function start(options?: ChromeStartOptions): Promise<string>;
+import { StartOptions } from "./start";
+export declare function start(options: StartOptions): Promise<string>;
 //# sourceMappingURL=chrome.d.ts.map

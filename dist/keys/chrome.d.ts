@@ -1,7 +1,7 @@
 export declare function generate(): Promise<{
-    controllerPub: string;
     controllerPriv: string;
-    recoveryPub: string;
+    controllerPub: string;
     recoveryPriv: string;
+    recoveryPub: string;
 }>;
 //# sourceMappingURL=chrome.d.ts.map
